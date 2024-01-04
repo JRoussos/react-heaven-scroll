@@ -38,7 +38,3 @@ useEffect(() => {
     // {delta: 0.08175386572542152, scroll: 894.9881211589087}
 }, [])
 ```
-
-## License
-
-MIT © [](https://github.com/JRoussos/react-heaven-scroll/blob/main/LICENSE)
