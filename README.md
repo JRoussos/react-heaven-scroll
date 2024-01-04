@@ -1,6 +1,6 @@
 # react-heaven-scroll
 
-> Scroll so smooth and simple, it&#x27;s like it&#x27;s made in Heaven
+Scroll so smooth, it&#x27;s like it&#x27;s made in Heaven.
 
 [![NPM](https://img.shields.io/npm/v/react-heaven-scroll.svg)](https://www.npmjs.com/package/react-heaven-scroll) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -24,6 +24,8 @@ const Component = () => {
     )
 }
 ```
+---
+<i>Ideally it should be an immediate descendant of the root element</i>
 
 | Argument    | Type              | Default  | Description                                                            |
 | ----------- | ------------------| -------- | -----------------------------------------------------------------------|
@@ -43,10 +45,21 @@ const Component = () => {
 import * as React from 'react'
 import { useHeaven } from 'react-heaven-scroll'
 
-const scroll = useHeaven()
+const AnyChildComponent = () => {
+    const scroll = useHeaven()
+    
+    React.useEffect(() => {
+        setInterval(() => console.log(scroll), 500)
+        // {delta: 0.08175386572542152, scroll: 894.9881211589087}
+    }, [])
 
-React.useEffect(() => {
-    setInterval(() => console.log(scroll), 500)
-    // {delta: 0.08175386572542152, scroll: 894.9881211589087}
-}, [])
+    return (
+        ...
+    )
+}
+
 ```
+
+## LICENSE 
+
+[MIT](LICENCE)
