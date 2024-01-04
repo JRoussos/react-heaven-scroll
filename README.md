@@ -7,12 +7,13 @@
 ## Install
 
 ```bash
-npm install --save react-heaven-scroll
+npm install react-heaven-scroll
 ```
 
 ## Usage
 
 ```jsx
+import * as React from 'react'
 import HeavenScroll from 'react-heaven-scroll'
 
 const Component = () => {
@@ -24,16 +25,27 @@ const Component = () => {
 }
 ```
 
+| Argument    | Type              | Default  | Description                                                            |
+| ----------- | ------------------| -------- | -----------------------------------------------------------------------|
+| velocity    | number            | 0.1      | A value from 0 to 1 that determines the strength of the effect         |
+| style       | style object      | null     | Style object to overide the default styling of the parent element      |
+| disable     | boolean           | false    | Whether or not the scroll effect will be enabled                       |
+| rootId      | string            | "root"   | The id of the root component to hard set the height                    |
+| resetHeight | dependency array  | null     | An array of dependencies to listen for height resetting                |
+
+
 ## API
 
 ### useHeaven()
+> Returns a react ref created by `useRef()` with the current scroll value and the scroll delta.
 
 ```jsx
-import { useHeaven } from './heaven-scroll/heaven'
+import * as React from 'react'
+import { useHeaven } from 'react-heaven-scroll'
 
 const scroll = useHeaven()
 
-useEffect(() => {
+React.useEffect(() => {
     setInterval(() => console.log(scroll), 500)
     // {delta: 0.08175386572542152, scroll: 894.9881211589087}
 }, [])
