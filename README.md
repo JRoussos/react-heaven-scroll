@@ -1,4 +1,4 @@
-# react-heaven-scroll
+# react-heaven-scroll 🪽
 
 Scroll so smooth, it&#x27;s like it&#x27;s made in Heaven.
 
