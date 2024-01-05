@@ -1,6 +1,6 @@
 {
     "name": "react-heaven-scroll",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Scroll so smooth, it&#x27;s like it&#x27;s made in Heaven",
     "author": {
         "name": "John Roussos",
@@ -36,10 +36,8 @@
         "deploy": "gh-pages -d example/build"
     },
     "peerDependencies": {
+        "@react-hook/resize-observer": "^1.2.6",
         "react": ">=16.8"
-    },
-    "dependencies": {
-        "@react-hook/resize-observer": "^1.2.6"
     },
     "devDependencies": {
         "microbundle-crl": "^0.13.10",

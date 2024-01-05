@@ -1,26 +1,15 @@
-import React, { useEffect, useRef, useCallback, useContext, useState, useLayoutEffect } from "react";
+import React, { useEffect, useRef, useCallback, useContext } from "react";
 import useResizeObserver from '@react-hook/resize-observer'; 
 
-function useObserverSize( element ) {
-    const [ size, setSize ] = useState()
-      
-    useLayoutEffect(() => {
-        element && setSize( element.getBoundingClientRect() )
-    }, [ element ])
-    
-    useResizeObserver( element, entry => setSize(entry.contentRect) )
-    return size
-}
-
 const Heaven = React.createContext()
+const clamp = value => Math.max(Math.min(value, 1), 0)
+
 /**
  * A React hook to access the current scoll value and delta
  * 
  * @returns Object { delta: 0, scroll: 0 }
  */
 export const useHeaven = () => useContext(Heaven)
-
-const clamp = value => Math.max(Math.min(value, 1), 0)
 
 /**
  *  A React context provider that enables smooth scroll on its children.
@@ -38,12 +27,12 @@ const HeavenScroll = ({ children, style={}, resetHeight=[], disable=false, veloc
     const {current: config} = useRef({ velocity: clamp(velocity), current: 0, previous: 0, requestScrollEvent: 0 })
     const {current: heaven} = useRef({ delta: 0, scroll: 0 })
 
-    const obSize = useObserverSize(document.getElementById('scrollableContainer'))
-
-    const setScrollerHeight = useCallback(() => {
+    const setScrollerHeight = () => {
         const { height } = scrollableContainerRef.current.getBoundingClientRect()
         document.getElementById(rootId).style.height = `${height}px`
-    }, [])
+    }
+
+    useResizeObserver( scrollableContainerRef, setScrollerHeight )
 
     const smoothScrollingHandler = useCallback(() => {
         config.current = window.scrollY
@@ -74,14 +63,14 @@ const HeavenScroll = ({ children, style={}, resetHeight=[], disable=false, veloc
 
         window.addEventListener('scroll', scrollHandler)
         return () => window.removeEventListener('scroll', scrollHandler)
-    }, [scrollHandler]);
+    }, [disable, scrollHandler]);
 
     useEffect(() => {
         if (disable) return 
 
         setScrollerHeight()
         return () => document.getElementById('root').removeAttribute('style')
-    }, [obSize, ...resetHeight])
+    }, [disable, ...resetHeight])
 
     return disable ? children : (
         <Heaven.Provider value={heaven}>
