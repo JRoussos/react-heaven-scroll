@@ -1,6 +1,6 @@
 # react-heaven-scroll 🪽
 
-Scroll so smooth, it&#x27;s like it&#x27;s made in Heaven.
+Scroll so smooth, it's like it's made in Heaven.
 
 [![NPM](https://img.shields.io/npm/v/react-heaven-scroll.svg)](https://www.npmjs.com/package/react-heaven-scroll) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
