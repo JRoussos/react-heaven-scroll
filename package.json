@@ -1,6 +1,6 @@
 {
     "name": "react-heaven-scroll",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Scroll so smooth, it's like it's made in Heaven.",
     "author": {
         "name": "John Roussos",
@@ -10,9 +10,10 @@
     "license": "MIT",
     "repository": "github:JRoussos/react-heaven-scroll",
     "homepage": "https://github.com/JRoussos/react-heaven-scroll",
-    "main": "dist/index.js",
-    "module": "dist/index.modern.js",
+    "main": "output/index.js",
+    "module": "output/index.modern.js",
     "source": "src/index.js",
+    "types": "output/index.d.ts",
     "engines": {
         "node": ">=10"
     },
@@ -61,6 +62,6 @@
         "react-scripts": "^3.4.1"
     },
     "files": [
-        "dist"
+        "output"
     ]
 }
