@@ -9,7 +9,6 @@ example/node_modules
 build
 dist
 example/dist
-example/public
 .rpt2_cache
 
 # misc
