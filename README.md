@@ -11,11 +11,13 @@ npm install react-heaven-scroll
 ```
 
 ## Usage
+Check out the [example](/example/) project, or the demo [here](https://react-heaven-scroll.netlify.app/).
 
 ```jsx
 import * as React from 'react'
 import HeavenScroll from 'react-heaven-scroll'
 
+// Ideally it should be an immediate descendant of the root element
 const Component = () => {
     return (
         <HeavenScroll velocity={0.06}>
@@ -25,7 +27,6 @@ const Component = () => {
 }
 ```
 ---
-<i>Ideally it should be an immediate descendant of the root element</i>
 
 | Argument    | Type              | Default  | Description                                                            |
 | ----------- | ------------------| -------- | -----------------------------------------------------------------------|
